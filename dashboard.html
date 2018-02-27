@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Slack Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body bg-primary">
+              <h1 class="text-light">Slack Dashboard</h1>
+            </div>
+          </div>
+          <div id='successmessage' class="alert alert-success alert-dismissible fade show mt-2 d-none" role="alert">
+            <strong>Successful!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id='failmessage' class="alert alert-danger alert-dismissible fade show mt-2 d-none" role="alert">
+            <strong>Failed!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pt-5 pb-3">
+        <div class="col">
+          <div class="card">
+            <h2 class="card-header">Presence</h2>
+            <div class="card-body">
+              <p class="card-text">Set your presence on Slack</p>
+              <a href="#" id="online" class="btn btn-success btn-lg"><span class="fas fa-toggle-on"></span>&nbsp;Online</a>
+              <a href="#" id="away" class="btn btn-danger btn-lg"><span class="fas fa-toggle-on"></span>&nbsp;Away</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-3">
+        <div class="col">
+          <div class="card">
+            <h2 class="card-header">Status</h2>
+            <div class="card-body">
+              <p class="card-text">Set your status message on Slack</p>
+              <a href="#" id='homeoffice' class="_status btn btn-primary btn-lg mb-1"><span class="fas fa-building"></span>&nbsp;Home Office</a>
+              <a href="#" id='afk' class="_status btn btn-warning btn-lg mb-1">AFK</a>
+              <a href="#" id='food' class="_status btn btn-warning btn-lg mb-1"><span class="fas fa-utensils"></span>&nbsp;Food</a>
+              <a href="#" id='coding' class="_status btn btn-danger btn-lg mb-1"><span class="fas fa-code"></span>&nbsp;Coding</a>
+              <a href="#" id='bughunting' class="_status btn btn-danger btn-lg mb-1"><span class="fas fa-bug"></span>&nbsp;Bug Hunting</a>
+              <a href="#" id='dnd' class="_status btn btn-danger btn-lg mb-1"><span class="fas fa-ban"></span>&nbsp;Do Not Disturb</a>
+              <a href="#" id='focus' class="_status btn btn-danger btn-lg mb-1"><span class="fas fa-headphones"></span>&nbsp;Focus</a>
+              <a href="#" id='meeting' class="_status btn btn-secondary btn-lg mb-1"><span class="fas fa-users"></span>&nbsp;Meeting</a>
+              <a href="#" id='traveling' class="_status btn btn-info btn-lg mb-1"><span class="fas fa-suitcase"></span>&nbsp;Traveling</a>
+              <a href="#" id='sick' class="_status btn btn-success btn-lg mb-1"><span class="fas fa-pills"></span>&nbsp;Out sick</a>
+              <a href="#" id='feierabend' class="_status btn btn-success btn-lg mb-1"><span class="fas fa-home"></span>&nbsp;Feierabend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="slacker.js"></script>
+  </body>
+</html>
