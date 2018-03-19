@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Slack Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body bg-primary">
+              <h1 class="text-light">Slack Dashboard</h1>
+            </div>
+          </div>
+          <div id='successmessage' class="alert alert-success alert-dismissible fade show mt-2 d-none" role="alert">
+            <strong>Successful!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id='failmessage' class="alert alert-danger alert-dismissible fade show mt-2 d-none" role="alert">
+            <strong>Failed!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pt-5 pb-3">
+        <div class="col">
+          <div class="card">
+            <h2 class="card-header">Presence change</h2>
+            <div class="card-body">
+              <a href="#" id="online" class="btn btn-success"><span class="fas fa-toggle-on"></span>&nbsp;Online</a>
+              <a href="#" id="away" class="btn btn-danger"><span class="fas fa-toggle-on"></span>&nbsp;Away</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-3">
+        <div class="col">
+          <div class="card">
+            <h2 class="card-header">Status change</h2>
+            <div class="card-body">
+              <a href="#" id='homeoffice' class="_status btn btn-primary mb-1"><span class="fas fa-building"></span>&nbsp;Home Office</a>
+              <a href="#" id='afk' class="_status btn btn-warning mb-1"><span class="fas fa-keyboard"></span>&nbsp;AFK</a>
+              <a href="#" id='food' class="_status btn btn-warning mb-1"><span class="fas fa-utensils"></span>&nbsp;Food</a>
+              <a href="#" id='coding' class="_status btn btn-danger mb-1"><span class="fas fa-code"></span>&nbsp;Coding</a>
+              <a href="#" id='bughunting' class="_status btn btn-danger mb-1"><span class="fas fa-bug"></span>&nbsp;Bug Hunting</a>
+              <a href="#" id='dnd' class="_status btn btn-danger mb-1"><span class="fas fa-ban"></span>&nbsp;Do Not Disturb</a>
+              <a href="#" id='focus' class="_status btn btn-danger mb-1"><span class="fas fa-headphones"></span>&nbsp;Focus</a>
+              <a href="#" id='meeting' class="_status btn btn-secondary mb-1"><span class="fas fa-users"></span>&nbsp;Meeting</a>
+              <a href="#" id='traveling' class="_status btn btn-info mb-1"><span class="fas fa-plane"></span>&nbsp;Traveling</a>
+              <a href="#" id='vacation' class="_status btn btn-success mb-1"><span class="fas fa-suitcase"></span>&nbsp;Vacation</a>
+              <a href="#" id='sick' class="_status btn btn-success mb-1"><span class="fas fa-pills"></span>&nbsp;Out sick</a>
+              <a href="#" id='feierabend' class="_status btn btn-success mb-1"><span class="fas fa-home"></span>&nbsp;Feierabend</a>
+              <a href="#" id='reset' class="_status btn btn-dark mb-1"><span class="fas fa-eraser"></span>&nbsp;Reset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-3">
+        <div class="col">
+          <div class="card">
+            <h2 class="card-header">Messages</h2>
+            <div class="card-body">
+              <a href="#" id='morning' class="_message btn btn-secondary mb-1"><span class="fas fa-coffee"></span>&nbsp;Morning</a>
+              <a href="#" id='mondaymorning' class="_message btn btn-secondary mb-1"><span class="fas fa-coffee"></span>&nbsp;Monday Morning</a>
+              <a href="#" id='bye' class="_message btn btn-secondary mb-1"><span class="fas fa-home"></span>&nbsp;Goodbye</a>
+              <a href="#" id='focus' class="_message btn btn-secondary mb-1"><span class="fas fa-bell-slash"></span>&nbsp;Focus</a>
+              <a href="#" id='vacationstart' class="_message btn btn-secondary mb-1"><span class="fas fa-battery-empty"></span>&nbsp;Vacation Start</a>
+              <a href="#" id='vacationend' class="_message btn btn-secondary mb-1"><span class="fas fa-battery-full"></span>&nbsp;Vacation End</a>
+              <a href="#" id='weekend' class="_message btn btn-secondary mb-1"><span class="fas fa-home"></span>&nbsp;Weekend</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="tarp/require.min.js"></script>
+    <script>Tarp.require("./slacker.js", true)</script>
+    <!-- <script src="slacker.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "slack_token": "xoxp-12345",
+  "default_channel": "#mychannel",
+  "img_baseurl": "https://s3.eu-central-1.amazonaws.com/foo/",
+  "statusmsg": {
+    "homeoffice": "Home Office",
+    "afk": "Away From Keyboard",
+    "food": "Food",
+    "coding": "Coding",
+    "bughunting": "Bug Hunting",
+    "dnd": "Do Not Disturb",
+    "focus": "Focus Session",
+    "meeting": "In a Meeting",
+    "traveling": "Traveling (try cellphone)",
+    "vacation": "On PTO",
+    "sick": "Out sick",
+    "feierabend": "Off Work For Today",
+    "reset": ""
+  },
+  "emoji":{
+    "homeoffice": ":flag-de:",
+    "afk": ":coffee:",
+    "food": ":knife_fork_plate:",
+    "coding": ":male-technologist:",
+    "bughunting": ":bug:",
+    "dnd": ":no_entry:",
+    "focus": ":headphones:",
+    "meeting": ":date:",
+    "traveling": ":airplane:",
+    "vacation": ":palm_tree:",
+    "sick": ":pill:",
+    "feierabend": ":house:",
+    "reset": ""
+  },
+  "messages": {
+    "morning": "Morning everyone! :coffee:",
+    "mondaymorning": "Morning all! It's Monday... again. Isn't it? :coffee:",
+    "bye": "Bye everyone! I am signing off for today :door:",
+    "vacationstart": "See you guys! Off to my well-earned vacation :palm_tree:",
+    "vacationend": ":battery: Hey everyone! I am back from vacation. Did you miss me?",
+    "weekend": "Bye everyone! I am signing off. Have a great weekend! :parrot:",
+    "focus": "Started a focus session. I am in the zone! Only important messages please :no_entry_sign:"
+  },
+  "files": {
+    "morning": ["coffee1.gif", "coffee2.gif", "coffee3.gif", "coffee4.gif", "coffee5.gif"],
+    "bye": ["bye1.gif", "bye2.gif"],
+    "mondaymorning": ["monday.gif"],
+    "vacationend": ["imback2.gif","imback3.gif"],
+    "focus": ["focus.gif"],
+    "weekend": ["weekend01.gif","weekend02.gif"]
+  }
+}

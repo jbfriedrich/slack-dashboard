@@ -1,120 +1,104 @@
-$( function (){
-
-  var slack_token = "xoxp-12345"
+$( function () {
+  var config_file = './config.json'
+  var config = require(config_file, false)
+  var slack_token = config.slack_token
+  var def_channel = config.default_channel
 
   $('#online').click(
     function() {
-      var data = {
-        token: slack_token,
-        presence: 'auto',
-        pretty: 1
-      };
-      $.post( "https://slack.com/api/users.setPresence", data, null, "text" )
-        .done(function() {
-          bootstrap_alert('success')
-        })
-        .fail(function() {
-          bootstrap_alert('fail')
-        });
+      set_presence('auto')
     }
-  );
+  )
 
   $('#away').click(
     function() {
-      var data = {
-        token: slack_token,
-        presence: 'away',
-        pretty: 1
-      };
-      $.post( "https://slack.com/api/users.setPresence", data, null, "text" )
-      .done(function() {
-        bootstrap_alert('success')
-      })
-      .fail(function() {
-        bootstrap_alert('fail')
-      });
+      set_presence('away')
     }
-  );
+  )
 
   $('._status').click(
     function() {
       var status = $(this).attr('id')
       set_status(status)
     }
-  );
+  )
+
+  $('._message').click(
+    function() {
+      var message = $(this).attr('id')
+      post_message(message)
+    }
+  )
+
+  function post_message(message) {
+    var url = 'https://slack.com/api/chat.postMessage'
+    var msg_txt = config['messages'][message]
+    var data = {
+      "token": slack_token,
+      "text": msg_txt,
+      "channel": def_channel,
+      "as_user": "true"
+    }
+    var files = config['files'][message]
+    if (files) {
+      var random_file = files[Math.floor(Math.random()*files.length)];
+      var img_baseurl = config.img_baseurl
+      var file = img_baseurl + random_file
+      console.log(file)
+      data.attachments = '[{"fallback":"image","image_url":"' + file + '"}]'
+      console.log(data)
+    }
+    $.post(url, data, null, "text")
+    .done(function() {
+      bootstrap_alert('success')
+    })
+    .fail(function() {
+      bootstrap_alert('fail')
+    })
+  }
+
+  function set_presence(presence) {
+    var url = 'https://slack.com/api/users.setPresence'
+    var data = {
+      token: slack_token,
+      presence: presence,
+      pretty: 1
+    }
+    $.post( url, data, null, "text" )
+    .done(function() {
+      bootstrap_alert('success')
+    })
+    .fail(function() {
+      bootstrap_alert('fail')
+    })
+  }
 
   function set_status(status) {
     var url = 'https://slack.com/api/users.profile.set'
-
-    if (status == 'homeoffice') {
-      var text = 'Home Office'
-      var emoji = ':flag-de:'
-    }
-    else if (status == 'afk') {
-      var text = 'Away From Keyboard'
-      var emoji = ':coffee:'
-    }
-    else if (status == 'food') {
-      var text = 'Breakfast / Lunch / Dinner'
-      var emoji = ':knife_fork_plate:'
-    }
-    else if (status == 'coding') {
-      var text = 'Coding'
-      var emoji = ':male-technologist:'
-    }
-    else if (status == 'bughunting') {
-      var text = 'Bug Hunting'
-      var emoji = ':bug:'
-    }
-    else if (status == 'dnd') {
-      var text = 'Do Not Disturb'
-      var emoji = ':no_entry:'
-    }
-    else if (status == 'focus') {
-      var text = 'Focus Session'
-      var emoji = ':headphones:'
-    }
-    else if (status == 'meeting') {
-      var text = 'Meeting'
-      var emoji = ':telephone_receiver:'
-    }
-    else if (status == 'sick') {
-      var text = 'Out sick'
-      var emoji = ':pill:'
-    }
-    else if (status == 'traveling') {
-      var text = 'Traveling'
-      var emoji = ':airplane:'
-    }
-    else if (status == 'feierabend') {
-      var text = 'Done for the day'
-      var emoji = ':house:'
-    };
-
-    var profile_data = '{"status_text":"' + text + '","status_emoji":"' + emoji + '"}';
-
+    text = config['statusmsg'][status]
+    emoji = config['emoji'][status]
+    var profile_data = '{"status_text":"' + text + '","status_emoji":"' + emoji + '"}'
     var data = {
       "token": slack_token,
       "profile": profile_data
-    };
+    }
 
     $.post( url, data, null, "text" )
     .done(function() {
       bootstrap_alert('success')
-      console.log(data)
     })
     .fail(function() {
       bootstrap_alert('fail')
-    });
-  };
+    })
+  }
 
   function bootstrap_alert(status) {
-    if(status == 'success') {
-      $("#successmessage").removeClass("d-none");
+    if (status == 'success') {
+      $("#successmessage").removeClass("d-none")
     }
     else if (status == 'fail') {
-      $("#failmessage").removeClass("d-none");
-      }
+      $("#failmessage").removeClass("d-none")
     }
+  }
 }
-);
+)
