@@ -1,6 +1,6 @@
-# Slack Dashboard
+# Slackboard
 
-Toggle active/away and set your status on Slack is very tedious. I was looking for a quick and easy way to manage both settings. So I created a simple Dashboard to quickly post [short informational messages](https://api.slack.com/docs/messages) to channels, set my [status](https://api.slack.com/docs/presence-and-status#custom_status) and toggle my [user presence](https://api.slack.com/docs/presence-and-status#user_presence).
+Toggle active/away and set your status on Slack is very tedious. I was looking for a quick and easy way to manage both settings. So I created a simple Dashboard to quickly post [short informational messages](https://api.slack.com/docs/messages) to channels, set my [status](https://api.slack.com/docs/presence-and-status#custom_status) and toggle my [user presence](https://api.slack.com/docs/presence-and-status#user_presence). It can be used in combination with [Fluid](http://fluidapp.com/) to create a web app for macOS.
 
 ## Requirements
 
@@ -37,7 +37,7 @@ Toggle active/away and set your status on Slack is very tedious. I was looking f
 
 ## To Do
 
-- Fix issue with "success" and "failure" banner that is removed from the DOM after closing it via click
+~~- Fix issue with "success" and "failure" banner that is removed from the DOM after closing it via click~~
 
 ## Screenshot
 
