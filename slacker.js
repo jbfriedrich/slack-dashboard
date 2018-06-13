@@ -44,9 +44,9 @@ $( function () {
       var random_file = files[Math.floor(Math.random()*files.length)];
       var img_baseurl = config.img_baseurl
       var file = img_baseurl + random_file
-      console.log(file)
+      //console.log(file)
       data.attachments = '[{"fallback":"image","image_url":"' + file + '"}]'
-      console.log(data)
+      //console.log(data)
     }
     $.post(url, data, null, "text")
     .done(function() {
@@ -94,10 +94,18 @@ $( function () {
 
   function bootstrap_alert(status) {
     if (status == 'success') {
-      $("#successmessage").removeClass("d-none")
+      $("<div id='#successmessage' class='alert alert-success\
+        alert-dismissible fade show mt-2' role='alert'\
+        <strong>Successful!</strong><button type='button' class='close'\
+        data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>\
+        &times;</span></button>").appendTo($("#status"))
     }
     else if (status == 'fail') {
-      $("#failmessage").removeClass("d-none")
+      $("<div id='#failmessage' class='alert alert-danger\
+        alert-dismissible fade show mt-2' role='alert'\
+        <strong>Failed!</strong><button type='button' class='close'\
+        data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>\
+        &times;</span></button>").appendTo($("#status"))
     }
   }
 }
