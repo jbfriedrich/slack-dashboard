@@ -94,19 +94,23 @@ $( function () {
 
   function bootstrap_alert(status) {
     if (status == 'success') {
-      $("<div id='#successmessage' class='alert alert-success\
-        alert-dismissible fade show mt-2' role='alert'\
-        <strong>Successful!</strong><button type='button' class='close'\
-        data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>\
-        &times;</span></button>").appendTo($("#status"))
+      $("<div id='#successmessage'\
+        class='alert alert-success alert-dismissible fade show mt-2'\
+        role='alert' <strong>Successful!</strong><button type='button'\
+        class='close' data-dismiss='alert' aria-label='Close'>\
+        <span aria-hidden='true'>&times;</span></button>").appendTo($("#status")).delay(5000).fadeOut(400, function(){
+          $(this).remove()
+        })
     }
     else if (status == 'fail') {
-      $("<div id='#failmessage' class='alert alert-danger\
-        alert-dismissible fade show mt-2' role='alert'\
-        <strong>Failed!</strong><button type='button' class='close'\
-        data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>\
-        &times;</span></button>").appendTo($("#status"))
-    }
+      $("<div id='#failmessage'\
+        class='alert alert-danger alert-dismissible fade show mt-2'\
+        role='alert' <strong>Failed!</strong><button type='button'\
+        class='close' data-dismiss='alert' aria-label='Close'>\
+        <span aria-hidden='true'>\&times;</span></button>").appendTo($("#status")).delay(5000).fadeOut(400, function(){
+          $(this).remove()
+        })
+      }
   }
 }
 )
