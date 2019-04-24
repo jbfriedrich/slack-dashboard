@@ -30,6 +30,25 @@ $( function () {
     }
   )
 
+  $('._enddnd').click(
+    function() {
+      end_dnd()
+    }
+  )
+
+  $('._endsnooze').click(
+    function() {
+      end_snooze()
+    }
+  )
+
+  $('._setsnooze').click(
+    function() {
+      var timeout = $('#setSnoozeTime').val()
+      set_snooze(timeout)
+    }
+  )
+
   function post_message(message) {
     var url = 'https://slack.com/api/chat.postMessage'
     var msg_txt = config['messages'][message]
@@ -84,6 +103,56 @@ $( function () {
     }
 
     $.post( url, data, null, "text" )
+    .done(function() {
+      bootstrap_alert('success')
+    })
+    .fail(function() {
+      bootstrap_alert('fail')
+    })
+
+    if (status == 'dnd') {
+      set_snooze('90')
+    }
+    else if (status == 'homeoffice') {
+      end_snooze()
+    }
+  }
+
+  function end_dnd(){
+    var url = 'https://slack.com/api/dnd.endDnd'
+    var data = {
+      "token": slack_token
+    }
+    $.post( url, data, null, "json" )
+    .done(function() {
+      bootstrap_alert('success')
+    })
+    .fail(function() {
+      bootstrap_alert('fail')
+    }) 
+  }
+
+  function end_snooze(){
+    var url = 'https://slack.com/api/dnd.endSnooze'
+    var data = {
+      "token": slack_token
+    }
+    $.post( url, data, null, "json" )
+    .done(function() {
+      bootstrap_alert('success')
+    })
+    .fail(function() {
+      bootstrap_alert('fail')
+    })
+  }
+
+  function set_snooze(timeout){
+    var url = 'https://slack.com/api/dnd.setSnooze'
+    var data = {
+      "token": slack_token,
+      "num_minutes": timeout
+    }
+    $.get( url, data, null, "json" )
     .done(function() {
       bootstrap_alert('success')
     })
