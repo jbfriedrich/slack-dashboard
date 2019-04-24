@@ -34,6 +34,7 @@ Toggle active/away and set your status on Slack is very tedious. I was looking f
 - Send messages to a predefined default channel
   - If the message is associated with an image in the config, the image is posted to the channel, alongside the message.
   - If the message is associated to several images in the config, one of images is randomly picked and posted to the channel, alongside the message.
+- Enable/Disable snooze time (Do Not Disturb)
 
 ## To Do
 
